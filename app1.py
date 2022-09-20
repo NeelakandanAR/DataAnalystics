@@ -34,7 +34,8 @@ if st.sidebar.button('Caluculate'):
     st.write(df1.isna().sum())
 
 # finding the month wise count and amount in each academy
-    st.info("No of students and the fee collected in each academy")
+    st.header('**No of students and the fee collected in each academy**')
+    
     b = pd.DataFrame(df1.groupby(['Month','AcademyName']).agg({'userId':['count'],'amount':['sum']})).reset_index()
     b.columns = b.columns.get_level_values(0) + '_' +  b.columns.get_level_values(1)
     b1 = b.pivot(index=['Month_','AcademyName_'], columns=[], values=['userId_count','amount_sum'])
