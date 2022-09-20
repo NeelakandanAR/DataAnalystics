@@ -31,6 +31,7 @@ if st.sidebar.button('Caluculate'):
     df1['Month'] = pd.to_datetime(df1['invoiceDate']).dt.month_name()
     df1 = iris[['userId','AgeBucket', 'invoiceDate', 'gender', 'courseId', 'fee', 'AcademyName', 'courseDurationInMonths','itemDescription'
           ,'amount','Month']]
+    st.info("null values in each column")
     st.write(df1.isna().sum())
 
 # finding the month wise count and amount in each academy
