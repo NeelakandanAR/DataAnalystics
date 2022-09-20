@@ -2,15 +2,10 @@ import streamlit as st
 import streamlit.components.v1 as components
 from pivottablejs import pivot_ui
 import pandas as pd
-import pickle
+
 import streamlit as st
 import pandas as pd
-import xgboost as xgb
-from PIL import Image
-import subprocess
-import os
-import base64
-import pickle
+
 
 
 
