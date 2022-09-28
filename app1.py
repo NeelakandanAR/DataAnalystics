@@ -19,7 +19,7 @@ if selected == "Upload":
     st.title(f"You have selected {selected}")
     with st.header('1. Upload your CSV data'):
         uploaded_file = st.file_uploader("Upload your input file", type=['csv'])
-if selected == "Tasks":
+#if selected == "Tasks":
     #st.title(f"You have selected {selected}")
     ### Read csv
     iris = pd.read_table(uploaded_file , sep=',', header=0)
