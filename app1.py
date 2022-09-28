@@ -20,19 +20,8 @@ if selected == "Upload":
     with st.header('1. Upload your CSV data'):
         uploaded_file = st.file_uploader("Upload your input file", type=['csv'])
 if selected == "Tasks":
-    st.title(f"You have selected {selected}")
-if selected == "Settings":
-    st.title(f"You have selected {selected}")    
-
-
-# Sidebar
-#with st.sidebar.header('1. Upload your CSV data'):
-   # uploaded_file = st.sidebar.file_uploader("Upload your input file", type=['csv'])
-
-#if st.sidebar.button('Caluculate'):
-
-
-### Read csv
+    #st.title(f"You have selected {selected}")
+    ### Read csv
     iris = pd.read_table(uploaded_file , sep=',', header=0)
     st.header('**CSK Academy Data analytics**')
  
@@ -104,3 +93,5 @@ if selected == "Settings":
     # b1.columns = ['Chennai', 'Salem']
     b1.index.name = 'Age Bucket'
     st.write(b1)
+if selected == "Settings":
+    st.title(f"You have selected {selected}")    
