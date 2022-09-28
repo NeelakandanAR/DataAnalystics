@@ -13,6 +13,15 @@ selected2 = option_menu(None, ["Home", "Upload", "Tasks", 'Settings'],
     menu_icon="cast", default_index=0, orientation="horizontal")
 selected2
 
+if selected == "Home":
+    st.title(f"You have selected {selected}")
+if selected == "Upload":
+    st.title(f"You have selected {selected}")
+if selected == "Tasks":
+    st.title(f"You have selected {selected}")
+if selected == "Settings":
+    st.title(f"You have selected {selected}")    
+
 
 # Sidebar
 with st.sidebar.header('1. Upload your CSV data'):
