@@ -17,7 +17,7 @@ if selected == "Home":
     st.title(f"You have selected {selected}")
 if selected == "Upload":
     st.title(f"You have selected {selected}")
-    uploaded_file = st.sidebar.file_uploader("Upload your input file", type=['csv'])
+    uploaded_file = st.file_uploader("Upload your input file", type=['csv'])
 if selected == "Tasks":
     st.title(f"You have selected {selected}")
 if selected == "Settings":
