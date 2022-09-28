@@ -26,10 +26,10 @@ if selected == "Settings":
 
 
 # Sidebar
-with st.sidebar.header('1. Upload your CSV data'):
-    uploaded_file = st.sidebar.file_uploader("Upload your input file", type=['csv'])
+#with st.sidebar.header('1. Upload your CSV data'):
+   # uploaded_file = st.sidebar.file_uploader("Upload your input file", type=['csv'])
 
-if st.sidebar.button('Caluculate'):
+#if st.sidebar.button('Caluculate'):
 
 
 ### Read csv
