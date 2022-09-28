@@ -1,12 +1,16 @@
 import streamlit as st
 import streamlit.components.v1 as components
+from streamlit_option_menu import option_menu
 from pivottablejs import pivot_ui
 import pandas as pd
 
 import streamlit as st
 import pandas as pd
 
-
+selected2 = option_menu(None, ["Home", "Upload", "Tasks", 'Settings'], 
+    icons=['house', 'cloud-upload', "list-task", 'gear'], 
+    menu_icon="cast", default_index=0, orientation="horizontal")
+selected2
 
 
 # Sidebar
@@ -14,6 +18,7 @@ with st.sidebar.header('1. Upload your CSV data'):
     uploaded_file = st.sidebar.file_uploader("Upload your input file", type=['csv'])
 
 if st.sidebar.button('Caluculate'):
+
 
 ### Read csv
     iris = pd.read_table(uploaded_file , sep=',', header=0)
@@ -31,8 +36,8 @@ if st.sidebar.button('Caluculate'):
     df1['Month'] = pd.to_datetime(df1['invoiceDate']).dt.month_name()
     df1 = iris[['userId','AgeBucket', 'invoiceDate', 'gender', 'courseId', 'fee', 'AcademyName', 'courseDurationInMonths','itemDescription'
           ,'amount','Month']]
-    st.info("null values in each column")
-    st.write(df1.isna().sum())
+    #st.info("null values in each column")
+    #st.write(df1.isna().sum())
 
 # finding the month wise count and amount in each academy
     st.header('**No of students and the fee collected in each academy**')
