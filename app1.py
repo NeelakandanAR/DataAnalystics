@@ -27,7 +27,7 @@ selected = option_menu(
         "nav-link-selected": {"background-color": "green"},
     }
 )
-return selected
+    return selected
 
 # Sidebar
 with st.sidebar.header('1. Upload your CSV data'):
