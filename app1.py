@@ -7,26 +7,11 @@ import pandas as pd
 import streamlit as st
 import pandas as pd
 
-# 2. horizontal menu with custom style
-selected = option_menu(
-    menu_title=None,  # required
-    options=["Home", "Projects", "Contact"],  # required
-    icons=["house", "book", "envelope"],  # optional
-    menu_icon="cast",  # optional
-    default_index=0,  # optional
-    orientation="horizontal",
-    styles={
-        "container": {"padding": "0!important", "background-color": "#fafafa"},
-        "icon": {"color": "orange", "font-size": "25px"},
-        "nav-link": {
-            "font-size": "25px",
-            "text-align": "left",
-            "margin": "0px",
-            "--hover-color": "#eee",
-        },
-        "nav-link-selected": {"background-color": "green"},
-    }
-)
+# 2. horizontal menu
+selected2 = option_menu(None, ["Home", "Upload", "Tasks", 'Settings'], 
+    icons=['house', 'cloud-upload', "list-task", 'gear'], 
+    menu_icon="cast", default_index=0, orientation="horizontal")
+selected2
 
 
 # Sidebar
