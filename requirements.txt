@@ -1,2 +1,3 @@
 pivottablejs
 IPython
+streamlit-option-menu
