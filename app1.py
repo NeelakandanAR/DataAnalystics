@@ -45,6 +45,9 @@ if selected == "Tasks":
 
 # finding the month wise count and amount in each academy
     if result == 'no of stndts':
+        df1 = pd.read_table(st.session_state["uploaded_file"] , sep=",", header=0)
+        chennai = df1[df1['AcademyName']=='SKA Chennai']
+        Salem = df1[df1['AcademyName']=='SKA Salem']
         st.header('**No of students and the fee collected in each academy**')
 
         b = pd.DataFrame(df1.groupby(['Month','AcademyName']).agg({'userId':['count'],'amount':['sum']})).reset_index()
@@ -61,6 +64,9 @@ if selected == "Tasks":
 
 ### Gender wise count in each academy
     if result == 'Gender':
+        df1 = pd.read_table(st.session_state["uploaded_file"] , sep=",", header=0)
+        chennai = df1[df1['AcademyName']=='SKA Chennai']
+        Salem = df1[df1['AcademyName']=='SKA Salem']
         st.header('**Gender wise count in each academy**')
         st.info("Chennai")
 #         chennai = df1[df1['AcademyName']=='SKA Chennai']
@@ -83,6 +89,9 @@ if selected == "Tasks":
 
 ### The age category of the students registered in the respective academies
     if result == 'age category':
+        df1 = pd.read_table(st.session_state["uploaded_file"] , sep=",", header=0)
+        chennai = df1[df1['AcademyName']=='SKA Chennai']
+        Salem = df1[df1['AcademyName']=='SKA Salem']
         st.header('**The age category of the students registered in the respective academies**')
         st.info("Chennai")
         b = pd.DataFrame(chennai.groupby(['AgeBucket','Month']).agg({'userId':['count','nunique']})).reset_index()
