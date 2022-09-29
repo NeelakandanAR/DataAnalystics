@@ -17,9 +17,9 @@ if selected == "Home":
     st.title(f"You have selected {selected}")
 if selected == "Upload":
     st.title(f"You have selected {selected}")
-    uploaded_file = st.file_uploader("Upload your input file", type=['csv'])
-#if selected == "Tasks":
-    #st.title(f"You have selected {selected}")
+    uploaded_file = st.file_uploader("Upload your input file", type=['csv'], key="uploaded_file")
+if selected == "Tasks":
+    st.title(f"You have selected {selected}")
     ### Read csv
     iris = pd.read_table(uploaded_file , sep=',', header=0)
     st.header('**CSK Academy Data analytics**')
