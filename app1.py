@@ -21,7 +21,8 @@ if selected == "Upload":
 if selected == "Tasks":
     st.title(f"You have selected {selected}")
     ### Read csv
-    iris = pd.read_table(uploaded_file , sep=',', header=0)
+#     iris = pd.read_table(uploaded_file , sep=',', header=0)
+    iris = pd.read_table(st.session_state["uploaded_file"] , sep=",", header=0)
     st.header('**CSK Academy Data analytics**')
  
     
