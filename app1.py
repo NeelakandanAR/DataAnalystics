@@ -74,7 +74,7 @@ if selected == "Tasks":
     b1.columns = ['Female', 'Male']
     b1.index.name = 'Month'
     b1.fillna(0,inplace=True)
-    st.write(b1)
+    st.dataframe(b1)
 
 ### The age category of the students registered in the respective academies
     st.header('**The age category of the students registered in the respective academies**')
@@ -84,7 +84,7 @@ if selected == "Tasks":
     b1 = b.pivot(index='AgeBucket_', columns='Month_', values='userId_nunique')
     # b1.columns = ['Chennai', 'Salem']
     b1.index.name = 'Age Bucket'
-    st.write(b1)
+    st.dataframe(b1)
 
     st.info("Salem")
     b = pd.DataFrame(Salem.groupby(['AgeBucket','Month']).agg({'userId':['count','nunique']})).reset_index()
@@ -92,6 +92,6 @@ if selected == "Tasks":
     b1 = b.pivot(index='AgeBucket_', columns='Month_', values='userId_nunique')
     # b1.columns = ['Chennai', 'Salem']
     b1.index.name = 'Age Bucket'
-    st.write(b1)
+    st.dataframe(b1)
 if selected == "Settings":
     st.title(f"You have selected {selected}")    
