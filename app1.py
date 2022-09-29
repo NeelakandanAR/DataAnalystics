@@ -37,6 +37,9 @@ if selected == "Tasks":
     df1['Month'] = pd.to_datetime(df1['invoiceDate']).dt.month_name()
     df1 = iris[['userId','AgeBucket', 'invoiceDate', 'gender', 'courseId', 'fee', 'AcademyName', 'courseDurationInMonths','itemDescription'
           ,'amount','Month']]
+    chennai = df1[df1['AcademyName']=='SKA Chennai']
+    Salem = df1[df1['AcademyName']=='SKA Salem']
+    
     #st.info("null values in each column")
     #st.write(df1.isna().sum())
 
@@ -60,7 +63,7 @@ if selected == "Tasks":
     if result == 'Gender':
         st.header('**Gender wise count in each academy**')
         st.info("Chennai")
-        chennai = df1[df1['AcademyName']=='SKA Chennai']
+#         chennai = df1[df1['AcademyName']=='SKA Chennai']
         b = pd.DataFrame(chennai.groupby(['Month','gender']).agg({'userId':['count']})).reset_index()
         b.columns = b.columns.get_level_values(0) + '_' +  b.columns.get_level_values(1)
         b1 = b.pivot(index='Month_', columns='gender_', values='userId_count')
@@ -68,7 +71,7 @@ if selected == "Tasks":
         b1.index.name = 'Month'
         b1.fillna(0,inplace=True)
         st.write(b1)
-        Salem = df1[df1['AcademyName']=='SKA Salem']
+#         Salem = df1[df1['AcademyName']=='SKA Salem']
         st.info("Salem")
         b = pd.DataFrame(Salem.groupby(['Month','gender']).agg({'userId':['count']})).reset_index()
         b.columns = b.columns.get_level_values(0) + '_' +  b.columns.get_level_values(1)
