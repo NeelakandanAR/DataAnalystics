@@ -20,12 +20,11 @@ if selected == "Upload":
     uploaded_file = st.file_uploader("Upload your input file", type=['csv'], key="uploaded_file")
 if selected == "Tasks":
     st.title(f"You have selected {selected}")
-    ### Read csv
-#     iris = pd.read_table(uploaded_file , sep=',', header=0)
     iris = pd.read_table(st.session_state["uploaded_file"] , sep=",", header=0)
     st.header('**CSK Academy Data analytics**')
- 
     
+    option_list = ['no of stndts', 'Fee collected', 'Gender', 'age category']
+    result = st.selectbox('select your analysis category', option_list)
     ##iris = pd.read_table(uploaded_file)
     col = iris.columns.to_list()
     iris.columns = col
