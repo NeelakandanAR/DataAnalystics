@@ -41,7 +41,7 @@ if selected == "Tasks":
     Salem = df1[df1['AcademyName']=='SKA Salem']
     
     #st.info("null values in each column")
-    #st.write(df1.isna().sum())
+    st.write(df1.isna().sum())
 
 # finding the month wise count and amount in each academy
     if result == 'no of stndts':
@@ -56,10 +56,9 @@ if selected == "Tasks":
         b1 = b1.rename(index={'SKA Chennai':'Chennai','SKA Salem':'Salem'})
         convert_dict = {'userId_count': int,
                                             }
-
         b1= b1.astype(convert_dict)
         st.write(b1)
-
+        
 ### Gender wise count in each academy
     if result == 'Gender':
         df1 = pd.read_table(st.session_state["uploaded_file"] , sep=",", header=0)
