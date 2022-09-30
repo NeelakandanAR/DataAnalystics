@@ -31,24 +31,24 @@ if selected == "Tasks":
     if result == 'original table':
         st.info("Original table")
         st.write(iris.head())
-    df1=iris
-    df1['invoiceDate']= pd.to_datetime(df1['invoiceDate'])
-    df1['invoiceDate']= pd.to_datetime(df1['invoiceDate'], format='%y%m%d')
-    df1['Month'] = pd.to_datetime(df1['invoiceDate']).dt.month_name()
-    df1 = iris[['userId','AgeBucket', 'invoiceDate', 'gender', 'courseId', 'fee', 'AcademyName', 'courseDurationInMonths','itemDescription'
+    
+    iris['invoiceDate']= pd.to_datetime(iris['invoiceDate'])
+    iris['invoiceDate']= pd.to_datetime(iris['invoiceDate'], format='%y%m%d')
+    iris['Month'] = pd.to_datetime(iris['invoiceDate']).dt.month_name()
+    iris = iris[['userId','AgeBucket', 'invoiceDate', 'gender', 'courseId', 'fee', 'AcademyName', 'courseDurationInMonths','itemDescription'
           ,'amount','Month']]
-    chennai = df1[df1['AcademyName']=='SKA Chennai']
-    Salem = df1[df1['AcademyName']=='SKA Salem']
+    chennai = iris[iris['AcademyName']=='SKA Chennai']
+    Salem = iris[iris['AcademyName']=='SKA Salem']
     
     #st.info("null values in each column")
-    st.write(df1.isna().sum())
+    st.write(iris.isna().sum())
 
 # finding the month wise count and amount in each academy
     if result == 'no of stndts':
         
         st.header('**No of students and the fee collected in each academy**')
 
-        b = pd.DataFrame(df1.groupby(['Month','AcademyName']).agg({'userId':['count'],'amount':['sum']})).reset_index()
+        b = pd.DataFrame(iris.groupby(['Month','AcademyName']).agg({'userId':['count'],'amount':['sum']})).reset_index()
         b.columns = b.columns.get_level_values(0) + '_' +  b.columns.get_level_values(1)
         b1 = b.pivot(index=['Month_','AcademyName_'], columns=[], values=['userId_count','amount_sum'])
         b1.columns = ['userId_count','amount']
@@ -61,9 +61,9 @@ if selected == "Tasks":
         
 ### Gender wise count in each academy
     if result == 'Gender':
-        df1 = pd.read_table(st.session_state["uploaded_file"] , sep=",", header=0)
-        chennai = df1[df1['AcademyName']=='SKA Chennai']
-        Salem = df1[df1['AcademyName']=='SKA Salem']
+        iris = pd.read_table(st.session_state["uploaded_file"] , sep=",", header=0)
+        chennai = iris[iris['AcademyName']=='SKA Chennai']
+        Salem = iris[iris['AcademyName']=='SKA Salem']
         st.header('**Gender wise count in each academy**')
         st.info("Chennai")
 #         chennai = df1[df1['AcademyName']=='SKA Chennai']
@@ -86,9 +86,9 @@ if selected == "Tasks":
 
 ### The age category of the students registered in the respective academies
     if result == 'age category':
-        df1 = pd.read_table(st.session_state["uploaded_file"] , sep=",", header=0)
-        chennai = df1[df1['AcademyName']=='SKA Chennai']
-        Salem = df1[df1['AcademyName']=='SKA Salem']
+        iris = pd.read_table(st.session_state["uploaded_file"] , sep=",", header=0)
+        chennai = iris[iris['AcademyName']=='SKA Chennai']
+        Salem = iris[iris['AcademyName']=='SKA Salem']
         st.header('**The age category of the students registered in the respective academies**')
         st.info("Chennai")
         b = pd.DataFrame(chennai.groupby(['AgeBucket','Month']).agg({'userId':['count','nunique']})).reset_index()
