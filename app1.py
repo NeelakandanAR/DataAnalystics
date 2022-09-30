@@ -45,9 +45,7 @@ if selected == "Tasks":
 
 # finding the month wise count and amount in each academy
     if result == 'no of stndts':
-        df1 = pd.read_table(st.session_state["uploaded_file"] , sep=",", header=0)
-        chennai = df1[df1['AcademyName']=='SKA Chennai']
-        Salem = df1[df1['AcademyName']=='SKA Salem']
+        
         st.header('**No of students and the fee collected in each academy**')
 
         b = pd.DataFrame(df1.groupby(['Month','AcademyName']).agg({'userId':['count'],'amount':['sum']})).reset_index()
