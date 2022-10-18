@@ -1,3 +1,4 @@
 pivottablejs
 IPython
 streamlit-option-menu
+mysql-connector-python
