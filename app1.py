@@ -21,8 +21,8 @@ def run_query(query):
         cur.execute(query)
         return cur.fetchall()
 
-rows = run_query("select * from FEE_PAYMENTS_VW;")
+# rows = run_query("select * from FEE_PAYMENTS_VW;")
 
 # Print results.
-for row in rows:
-    st.write(f"{row[0]} has a :{row[1]}:")
+# for row in rows:
+#     st.write(f"{row[0]} has a :{row[1]}:")
