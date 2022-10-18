@@ -8,7 +8,7 @@ import streamlit as st
 import pandas as pd
 
 # 2. horizontal menu
-selected = option_menu(None, ["Home", "Upload", "Tasks", 'Settings'], 
+selected = option_menu(None, ["Home", "Upload", 'Settings'], 
     icons=['house', 'cloud-upload', "list-task", 'gear'], 
     menu_icon="cast", default_index=0, orientation="horizontal")
 selected
@@ -18,7 +18,7 @@ if selected == "Home":
 if selected == "Upload":
     st.title(f"You have selected {selected}")
     uploaded_file = st.file_uploader("Upload your input file", type=['csv'], key="uploaded_file")
-if selected == "Tasks":
+
     st.title(f"You have selected {selected}")
     iris = pd.read_table(st.session_state["uploaded_file"] , sep=",", header=0)
     st.header('**CSK Academy Data analytics**')
