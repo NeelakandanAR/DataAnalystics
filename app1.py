@@ -3,7 +3,7 @@ import streamlit.components.v1 as components
 from streamlit_option_menu import option_menu
 from pivottablejs import pivot_ui
 import pandas as pd
-import mysql.connector
+import mysql.connector-python
 
 # Initialize connection.
 # Uses st.experimental_singleton to only run once.
