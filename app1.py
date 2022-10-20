@@ -21,7 +21,7 @@ def run_query(query):
         cur.execute(query)
         return cur.fetchall()
 
-rows = run_query("SELECT * from FEE_PAYMENTS_VW;")
+rows = run_query("SELECT * from FEE_PAYMENTS_VW fpv;")
 
 # Print results.
 for row in rows:
