@@ -25,6 +25,9 @@ def run_query(query):
 
 rows = run_query("SELECT * from FEE_PAYMENTS_VW fpv;")
 
+dataframe = pd.read_sql("""SELECT * from FEE_PAYMENTS_VW fpv""", con = credentials)
+dataframe.head()
+
 # Print results.
 for row in rows:
     st.write(f"{row[0]} has a :{row[1]}:")
