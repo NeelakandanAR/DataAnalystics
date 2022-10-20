@@ -11,7 +11,7 @@ import mysql.connector
 def init_connection():
     return mysql.connector.connect(**st.secrets["mysql"], buffered=True)
 
-conn = init_connection()
+conn = init_connection(buffered=True)
 
 # Perform query.
 # Uses st.experimental_memo to only rerun when the query changes or after 10 min.
