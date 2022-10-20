@@ -10,8 +10,8 @@ import mysql.connector
 @st.experimental_singleton
 def init_connection():
     return mysql.connector.connect(**st.secrets["mysql"], buffered=True)
-
-conn = init_connection(buffered=True)
+cursor = cnx.cursor()
+conn = init_connection()
 
 # Perform query.
 # Uses st.experimental_memo to only rerun when the query changes or after 10 min.
