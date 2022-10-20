@@ -23,10 +23,10 @@ def run_query(query):
         cur.execute(query)
         return cur.fetchall()
 
-rows = run_query("SELECT * from FEE_PAYMENTS_VW fpv;")
+# rows = run_query("SELECT * from FEE_PAYMENTS_VW fpv;")
 df1 = pd.read_sql('SELECT * from FEE_PAYMENTS_VW', con=conn)
-df = pd.DataFrame(rows)
-st.write(df)
+# df = pd.DataFrame(rows)
+# st.write(df)
 st.write(df1)
 # Print results.
 # for row in rows:
