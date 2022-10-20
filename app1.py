@@ -27,7 +27,7 @@ def run_query(query):
 df1 = pd.read_sql('SELECT * from FEE_PAYMENTS_VW', con=conn)
 # df = pd.DataFrame(rows)
 # st.write(df)
-st.write(df1)
+# st.write(df1)
 
 
 iris = df1
@@ -51,7 +51,7 @@ chennai = iris[iris['AcademyName']=='SKA Chennai']
 Salem = iris[iris['AcademyName']=='SKA Salem']
 
 #st.info("null values in each column")
-st.write(iris.isna().sum())
+# st.write(iris.isna().sum())
 
 # finding the month wise count and amount in each academy
 if result == 'no of stndts':
@@ -71,7 +71,7 @@ if result == 'no of stndts':
 
 ### Gender wise count in each academy
 if result == 'Gender':
-    iris = pd.read_table(st.session_state["uploaded_file"] , sep=",", header=0)
+#     iris = pd.read_table(st.session_state["uploaded_file"] , sep=",", header=0)
     chennai = iris[iris['AcademyName']=='SKA Chennai']
     Salem = iris[iris['AcademyName']=='SKA Salem']
     st.header('**Gender wise count in each academy**')
@@ -96,7 +96,7 @@ if result == 'Gender':
 
 ### The age category of the students registered in the respective academies
 if result == 'age category':
-    iris = pd.read_table(st.session_state["uploaded_file"] , sep=",", header=0)
+#     iris = pd.read_table(st.session_state["uploaded_file"] , sep=",", header=0)
     chennai = iris[iris['AcademyName']=='SKA Chennai']
     Salem = iris[iris['AcademyName']=='SKA Salem']
     st.header('**The age category of the students registered in the respective academies**')
