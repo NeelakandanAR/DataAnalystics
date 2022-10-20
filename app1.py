@@ -9,7 +9,7 @@ import mysql.connector
 # Uses st.experimental_singleton to only run once.
 @st.experimental_singleton
 def init_connection():
-    return mysql.connector.connect(**st.secrets["mysql"])
+    return mysql.connector.connect(**st.secrets["mysql"], buffered=True)
 
 conn = init_connection()
 
