@@ -25,7 +25,7 @@ def run_query(query):
 
 rows = run_query("SELECT * from FEE_PAYMENTS_VW fpv;")
 
-dataframe = pd.read_sql("""SELECT * from FEE_PAYMENTS_VW fpv""", con = credentials)
+dataframe = pd.read_sql("""SELECT * from FEE_PAYMENTS_VW fpv""", con = conn)
 dataframe.head()
 
 # Print results.
