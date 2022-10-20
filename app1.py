@@ -24,9 +24,10 @@ def run_query(query):
         return cur.fetchall()
 
 rows = run_query("SELECT * from FEE_PAYMENTS_VW fpv;")
-
+df1 = pd.read_sql('SELECT * from FEE_PAYMENTS_VW', con=conn)
 df = pd.DataFrame(rows)
 st.write(df)
+st.write(df1)
 # Print results.
 # for row in rows:
 #     st.write(f"{row[0]} has a :{row[1]}:")
