@@ -5,7 +5,7 @@ from streamlit_option_menu import option_menu
 from pivottablejs import pivot_ui
 import pandas as pd
 import mysql.connector 
-
+import matplotlib 
 # Initialize connection.
 # Uses st.experimental_singleton to only run once.
 @st.experimental_singleton
