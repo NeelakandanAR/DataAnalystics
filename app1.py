@@ -60,7 +60,8 @@ if result == 'no of stndts':
 
 #     b = pd.DataFrame(iris.groupby(['Month','AcademyName']).agg({'userId':['count']})).reset_index()
 #     b.columns = b.columns.get_level_values(0) + '_' +  b.columns.get_level_values(1)
-    b1 = iris.pivot(index=['Month'], columns=['AcademyName'], values=['userId'], aggfunc='count')
+#     b1 = iris.pivot(index=['Month'], columns=['AcademyName'], values=['userId'], aggfunc='count')
+    b1 = iris.pivot_table('userId', index='Month', columns='AcademyName', aggfunc='count')
 #     b1.columns = ['userId_count']
 #     b1.index.names = ['Month','AcademyName']
 #     b1 = b1.rename(index={'SKA Chennai':'Chennai','SKA Salem':'Salem'})
