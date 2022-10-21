@@ -68,7 +68,7 @@ if result == 'no of stndts':
 #     convert_dict = {'userId_count': int}
 #     b1= b1.astype(convert_dict)
     st.write(b1)
-#     st.bar_chart(b1['AcademyName'])
+    st.bar_chart(b1)
     
 #     np.round(pd.pivot_table(b, values='userId', 
 #                             index=['Month'], 
