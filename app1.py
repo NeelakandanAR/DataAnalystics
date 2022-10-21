@@ -30,7 +30,7 @@ df1 = pd.read_sql('SELECT * from FEE_PAYMENTS_VW', con=conn)
 st.write(df1)
 
 
-iris = df1
+iris = pd.DataFrame(df1)
 st.header('**CSK Academy Data analytics**')
 
 option_list = ['original table','no of stndts',  'Gender', 'age category']
