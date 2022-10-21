@@ -58,10 +58,10 @@ if result == 'no of stndts':
 
     st.header('**No of students and the fee collected in each academy**')
 
-    b = pd.DataFrame(iris.groupby(['Month','AcademyName']).agg({'userId':['count'],'amount':['sum']})).reset_index()
+    b = pd.DataFrame(iris.groupby(['Month','AcademyName']).agg({'userId':['count']})).reset_index()
     b.columns = b.columns.get_level_values(0) + '_' +  b.columns.get_level_values(1)
-    b1 = b.pivot(index=['Month_','AcademyName_'], columns=[], values=['userId_count','amount_sum'])
-    b1.columns = ['userId_count','amount']
+    b1 = b.pivot(index=['Month_','AcademyName_'], columns=[], values=['userId_count'])
+    b1.columns = ['userId_count']
     b1.index.names = ['Month','AcademyName']
     b1 = b1.rename(index={'SKA Chennai':'Chennai','SKA Salem':'Salem'})
     convert_dict = {'userId_count': int}
