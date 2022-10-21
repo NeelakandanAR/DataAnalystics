@@ -1,4 +1,5 @@
 import streamlit as st
+import numpy as np
 import streamlit.components.v1 as components
 from streamlit_option_menu import option_menu
 from pivottablejs import pivot_ui
@@ -27,7 +28,7 @@ def run_query(query):
 df1 = pd.read_sql('SELECT * from FEE_PAYMENTS_VW', con=conn)
 # df = pd.DataFrame(rows)
 # st.write(df)
-st.write(df1)
+# st.write(df1)
 
 
 iris = pd.DataFrame(df1)
@@ -38,10 +39,6 @@ result = st.selectbox('select your analysis category', option_list)
 ##iris = pd.read_table(uploaded_file)
 col = iris.columns.to_list()
 iris.columns = col
-if result == 'original table':
-    st.info("Original table")
-    st.write(iris.head())
-
 iris['invoiceDate']= pd.to_datetime(iris['invoiceDate'])
 iris['invoiceDate']= pd.to_datetime(iris['invoiceDate'], format='%y%m%d')
 iris['Month'] = pd.to_datetime(iris['invoiceDate']).dt.month_name()
@@ -50,24 +47,32 @@ iris = iris[['userId','AgeBucket', 'invoiceDate', 'gender', 'courseId', 'fee', '
 chennai = iris[iris['AcademyName']=='SKA Chennai']
 Salem = iris[iris['AcademyName']=='SKA Salem']
 
-#st.info("null values in each column")
-# st.write(iris.isna().sum())
-
 # finding the month wise count and amount in each academy
+
+if result == 'original table':
+    st.info("Original table")
+    st.write(iris.head())
+
+
 if result == 'no of stndts':
 
     st.header('**No of students and the fee collected in each academy**')
 
     b = pd.DataFrame(iris.groupby(['Month','AcademyName']).agg({'userId':['count'],'amount':['sum']})).reset_index()
     b.columns = b.columns.get_level_values(0) + '_' +  b.columns.get_level_values(1)
-    b1 = b.pivot(index=['Month_','AcademyName_'], columns=[], values=['userId_count','amount_sum'])
-    b1.columns = ['userId_count','amount']
-    b1.index.names = ['Month','AcademyName']
-    b1 = b1.rename(index={'SKA Chennai':'Chennai','SKA Salem':'Salem'})
-    convert_dict = {'userId_count': int,
-                                        }
-    b1= b1.astype(convert_dict)
-    st.write(b1)
+#     b1 = b.pivot(index=['Month_','AcademyName_'], columns=[], values=['userId_count','amount_sum'])
+#     b1.columns = ['userId_count','amount']
+#     b1.index.names = ['Month','AcademyName']
+#     b1 = b1.rename(index={'SKA Chennai':'Chennai','SKA Salem':'Salem'})
+#     convert_dict = {'userId_count': int}
+#     b1= b1.astype(convert_dict)
+#     st.write(b1)
+    np.round(pd.pivot_table(b, values='userId', 
+                            index=['Month'], 
+                            columns=['AcademyName'], 
+                            aggfunc=np.count,
+                            fill_value=0),2).plot.barh(figsize=(10,7),
+                                                      title='Mean car price by make and number of doors')
 
 ### Gender wise count in each academy
 if result == 'Gender':
