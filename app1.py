@@ -60,19 +60,19 @@ if result == 'no of stndts':
 
     b = pd.DataFrame(iris.groupby(['Month','AcademyName']).agg({'userId':['count'],'amount':['sum']})).reset_index()
     b.columns = b.columns.get_level_values(0) + '_' +  b.columns.get_level_values(1)
-#     b1 = b.pivot(index=['Month_','AcademyName_'], columns=[], values=['userId_count','amount_sum'])
-#     b1.columns = ['userId_count','amount']
-#     b1.index.names = ['Month','AcademyName']
-#     b1 = b1.rename(index={'SKA Chennai':'Chennai','SKA Salem':'Salem'})
-#     convert_dict = {'userId_count': int}
-#     b1= b1.astype(convert_dict)
-#     st.write(b1)
-    np.round(pd.pivot_table(b, values='userId', 
-                            index=['Month'], 
-                            columns=['AcademyName'], 
-                            aggfunc=lambda userId: len(userId.unique())),
-                            fill_value=0),2).plot.barh(figsize=(10,7),
-                                                      title='Mean car price by make and number of doors')
+    b1 = b.pivot(index=['Month_','AcademyName_'], columns=[], values=['userId_count','amount_sum'])
+    b1.columns = ['userId_count','amount']
+    b1.index.names = ['Month','AcademyName']
+    b1 = b1.rename(index={'SKA Chennai':'Chennai','SKA Salem':'Salem'})
+    convert_dict = {'userId_count': int}
+    b1= b1.astype(convert_dict)
+    st.write(b1)
+#     np.round(pd.pivot_table(b, values='userId', 
+#                             index=['Month'], 
+#                             columns=['AcademyName'], 
+#                             aggfunc=lambda userId: len(userId.unique())),
+#                             fill_value=0),2).plot.barh(figsize=(10,7),
+#                                                       title='Mean car price by make and number of doors')
 
 ### Gender wise count in each academy
 if result == 'Gender':
