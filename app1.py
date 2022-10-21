@@ -70,7 +70,7 @@ if result == 'no of stndts':
     np.round(pd.pivot_table(b, values='userId', 
                             index=['Month'], 
                             columns=['AcademyName'], 
-                            aggfunc=np.count,
+                            aggfunc=count,
                             fill_value=0),2).plot.barh(figsize=(10,7),
                                                       title='Mean car price by make and number of doors')
 
