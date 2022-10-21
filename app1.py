@@ -66,6 +66,7 @@ if result == 'no of stndts':
     b1 = b1.rename(index={'SKA Chennai':'Chennai','SKA Salem':'Salem'})
     convert_dict = {'userId_count': int}
     b1= b1.astype(convert_dict)
+    b1.plot.bar(rot=0)
     st.write(b1)
 #     np.round(pd.pivot_table(b, values='userId', 
 #                             index=['Month'], 
