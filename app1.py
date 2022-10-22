@@ -34,7 +34,7 @@ d = {"January":1, "February":2, "March":3, "April":4, "May":5, "June":6, "July":
 
 
 iris = pd.DataFrame(df1)
-iris=iris.replace({"Month": d})
+iris=iris.replace({"Month": d},inplace=True)
 st.header('**CSK Academy Data analytics**')
 
 option_list = ['original table','no of stndts',  'Gender', 'age category']
