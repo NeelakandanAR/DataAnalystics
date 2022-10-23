@@ -70,8 +70,11 @@ if result == 'no of stndts':
 #     b1 = b1.rename(index={'SKA Chennai':'Chennai','SKA Salem':'Salem'})
 #     convert_dict = {'userId_count': int}
 #     b1= b1.astype(convert_dict)
-    st.write(b1)
+#     st.write(b1)
+    b2 = iris.pivot_table('fee', index='Month', columns='AcademyName', aggfunc='sum')
+    st.write(b2)
     st.bar_chart(b1)
+    st.bar_chart(b2)
     
 #     np.round(pd.pivot_table(b, values='userId', 
 #                             index=['Month'], 
