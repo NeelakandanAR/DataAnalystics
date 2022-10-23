@@ -30,11 +30,11 @@ df1 = pd.read_sql('SELECT * from FEE_PAYMENTS_VW', con=conn)
 # st.write(df)
 # st.write(df1)
 # Difine Dict with the key-value pair to remap.
-d = {"January":1, "February":2, "March":3, "April":4, "May":5, "June":6, "July":7, "August":8, "September":9, "October":10, "November":11, "December":12}
+# d = {"January":1, "February":2, "March":3, "April":4, "May":5, "June":6, "July":7, "August":8, "September":9, "October":10, "November":11, "December":12}
 
 
 iris = pd.DataFrame(df1)
-iris=iris.replace({"Month": d},inplace=True)
+# iris=iris.replace({"Month": d},inplace=True)
 st.header('**CSK Academy Data analytics**')
 
 option_list = ['original table','no of stndts',  'Gender', 'age category']
