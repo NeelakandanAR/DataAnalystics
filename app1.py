@@ -64,17 +64,20 @@ if result == 'no of stndts':
 #     b = pd.DataFrame(iris.groupby(['Month','AcademyName']).agg({'userId':['count']})).reset_index()
 #     b.columns = b.columns.get_level_values(0) + '_' +  b.columns.get_level_values(1)
 #     b1 = iris.pivot(index=['Month'], columns=['AcademyName'], values=['userId'], aggfunc='count')
-    b1 = iris.pivot_table('userId', index='Month', columns='AcademyName', aggfunc='count')
+#     b1 = iris.pivot_table('userId', index='Month', columns='AcademyName', aggfunc='count')
 #     b1.columns = ['userId_count']
 #     b1.index.names = ['Month','AcademyName']
 #     b1 = b1.rename(index={'SKA Chennai':'Chennai','SKA Salem':'Salem'})
 #     convert_dict = {'userId_count': int}
 #     b1= b1.astype(convert_dict)
 #     st.write(b1)
-    b2 = iris.pivot_table('fee', index='Month', columns='AcademyName', aggfunc='sum')
+#     b2 = iris.pivot_table('fee', index='Month', columns='AcademyName', aggfunc='sum')
 #     st.write(b2)
     start = st.date_input('Start', value = pd.to_datetime('2018-01-01'))
     end = st.date_input('Start', value = pd.to_datetime('today'))
+    iri = iris[(iris['invoiceDate'] > '2013-01-01') & (iris['invoiceDate'] < '2013-02-01')]
+    b1 = iri.pivot_table('userId', index='Month', columns='AcademyName', aggfunc='count')
+    b2 = iri.pivot_table('fee', index='Month', columns='AcademyName', aggfunc='sum')
     st.info("Student count")
     st.bar_chart(b1)
     st.info("Fee collected")
