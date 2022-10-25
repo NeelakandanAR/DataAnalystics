@@ -74,7 +74,9 @@ if result == 'no of stndts':
 #     b2 = iris.pivot_table('fee', index='Month', columns='AcademyName', aggfunc='sum')
 #     st.write(b2)
     start = st.date_input('Start', value = pd.to_datetime('2018-01-01'))
+    start = pd.to_datetime(start)
     end = st.date_input('End', value = pd.to_datetime('today'))
+    end = pd.to_datetime(end)
     iri = iris[(iris['invoiceDate'] > start) & (iris['invoiceDate'] < end)]
     b1 = iri.pivot_table('userId', index='Month', columns='AcademyName', aggfunc='count')
     b2 = iri.pivot_table('fee', index='Month', columns='AcademyName', aggfunc='sum')
