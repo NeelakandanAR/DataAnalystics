@@ -73,6 +73,8 @@ if result == 'no of stndts':
 #     st.write(b1)
     b2 = iris.pivot_table('fee', index='Month', columns='AcademyName', aggfunc='sum')
 #     st.write(b2)
+    start = st.date_input('Start', value = pd.to_datetime('2018-01-01'))
+    end = st.date_input('Start', value = pd.to_datetime('today'))
     st.info("Student count")
     st.bar_chart(b1)
     st.info("Fee collected")
