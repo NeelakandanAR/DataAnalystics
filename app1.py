@@ -72,8 +72,10 @@ if result == 'no of stndts':
 #     b1= b1.astype(convert_dict)
 #     st.write(b1)
     b2 = iris.pivot_table('fee', index='Month', columns='AcademyName', aggfunc='sum')
-    st.write(b2)
+#     st.write(b2)
+    st.info("Student count")
     st.bar_chart(b1)
+    st.info("Fee collected")
     st.bar_chart(b2)
     
 #     np.round(pd.pivot_table(b, values='userId', 
