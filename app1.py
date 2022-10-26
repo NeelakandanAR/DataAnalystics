@@ -45,7 +45,7 @@ iris.columns = col
 iris['invoiceDate']= pd.to_datetime(iris['invoiceDate'])
 iris['invoiceDate']= pd.to_datetime(iris['invoiceDate'], format='%y%m%d')
 iris['Month'] = pd.to_datetime(iris['invoiceDate']).dt.month_name()
-iris = iris[['userId','AgeBucket', 'invoiceDate', 'gender', 'courseId', 'fee', 'AcademyName', 'courseDurationInMonths','itemDescription'
+iris = iris[['userId','AgeBucket', 'invoiceDate', 'gender', 'courseId', 'fee', 'AcademyName', 'courseDurationInMonths','itemDescription','type'
       ,'amount','Month']]
 # chennai = iris[iris['AcademyName']=='SKA Chennai']
 # Salem = iris[iris['AcademyName']=='SKA Salem']
@@ -182,19 +182,19 @@ if result == 'Weekend/Weekday preferences':
     Salem = iri[iri['AcademyName']=='SKA Salem']
     st.header('**The age category of the students registered in the respective academies**')
     st.info("Chennai")
-    b = pd.DataFrame(chennai.groupby(['courseDurationInMonths','Month']).agg({'userId':['count','nunique']})).reset_index()
+    b = pd.DataFrame(chennai.groupby(['type','Month']).agg({'userId':['count','nunique']})).reset_index()
     b.columns = b.columns.get_level_values(0) + '_' +  b.columns.get_level_values(1)
-    b1 = b.pivot(index='courseDurationInMonths_', columns='Month_', values='userId_nunique')
+    b1 = b.pivot(index='type_', columns='Month_', values='userId_nunique')
     # b1.columns = ['Chennai', 'Salem']
-    b1.index.name = 'Course Duration'
+    b1.index.name = 'Weekend/Weekday preferences'
     st.dataframe(b1)
 
     st.info("Salem")
-    b = pd.DataFrame(Salem.groupby(['courseDurationInMonths','Month']).agg({'userId':['count','nunique']})).reset_index()
+    b = pd.DataFrame(Salem.groupby(['type','Month']).agg({'userId':['count','nunique']})).reset_index()
     b.columns = b.columns.get_level_values(0) + '_' +  b.columns.get_level_values(1)
-    b1 = b.pivot(index='courseDurationInMonths_', columns='Month_', values='userId_nunique')
+    b1 = b.pivot(index='type_', columns='Month_', values='userId_nunique')
     # b1.columns = ['Chennai', 'Salem']
-    b1.index.name = 'Course Duration'
+    b1.index.name ='Weekend/Weekday preferences'
     st.dataframe(b1)
 
 
