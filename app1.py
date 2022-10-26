@@ -5,6 +5,7 @@ from streamlit_option_menu import option_menu
 from pivottablejs import pivot_ui
 import pandas as pd
 import mysql.connector 
+import altair as alt
 
 # Initialize connection.
 # Uses st.experimental_singleton to only run once.
