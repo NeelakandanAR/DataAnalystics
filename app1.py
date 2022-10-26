@@ -90,14 +90,16 @@ if result == 'no of stndts':
     x='month(invoiceDate):O',
     y='count(userId):Q',
     color='AcademyName:N',
-    column='AcademyName:N').properties(width=200, height=200)
+    column='AcademyName:N').properties(width=350, height=400)
     st.info("Student count")
     st.altair_chart(b1)
+    
+    
     b2 = alt.Chart(iri).mark_bar().encode(
     x='month(invoiceDate):O',
     y='sum(fee):Q',
     color='AcademyName:N',
-    column='AcademyName:N')
+    column='AcademyName:N').properties(width=350, height=400)
     st.info("Fee collected")
     st.altair_chart(b2, use_container_width=True)
     
