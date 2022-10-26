@@ -183,7 +183,7 @@ if result == 'Course duration':
 #     iris = pd.read_table(st.session_state["uploaded_file"] , sep=",", header=0)
     chennai = iri[iri['AcademyName']=='SKA Chennai']
     Salem = iri[iri['AcademyName']=='SKA Salem']
-    st.header('**The age category of the students registered in the respective academies**')
+    st.header('**Course duration of the students registered in the respective academies**')
     st.info("Chennai")
     b = pd.DataFrame(chennai.groupby(['courseDurationInMonths','Month']).agg({'userId':['count','nunique']})).reset_index()
     b.columns = b.columns.get_level_values(0) + '_' +  b.columns.get_level_values(1)
@@ -203,7 +203,7 @@ if result == 'Weekend/Weekday preferences':
 #     iris = pd.read_table(st.session_state["uploaded_file"] , sep=",", header=0)
     chennai = iri[iri['AcademyName']=='SKA Chennai']
     Salem = iri[iri['AcademyName']=='SKA Salem']
-    st.header('**The age category of the students registered in the respective academies**')
+    st.header('**Weekend/Weekday preferences of the students registered in the respective academies**')
     st.info("Chennai")
     b = pd.DataFrame(chennai.groupby(['type','Month']).agg({'userId':['count','nunique']})).reset_index()
     b.columns = b.columns.get_level_values(0) + '_' +  b.columns.get_level_values(1)
