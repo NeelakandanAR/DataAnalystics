@@ -78,7 +78,7 @@ if result == 'no of stndts':
     b1 = iri.pivot_table('userId', index='Month', columns='AcademyName', aggfunc='count')
     b2 = iri.pivot_table('fee', index='Month', columns='AcademyName', aggfunc='sum')
    
-    bar_chart = alt.Chart(energy_source).mark_bar().encode(
+    bar_chart = alt.Chart(b1).mark_bar().encode(
         x="month(Date):O",
         y="sum(Price ($)):Q",
         color="EnergyType:N"
