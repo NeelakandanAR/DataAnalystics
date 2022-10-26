@@ -124,7 +124,8 @@ if result == 'Gender':
     b1 = b.pivot(index='Month_', columns='gender_', values='userId_count')
     b1.columns = ['Female', 'Male']
     b1.index.name = 'Month'
-    b1.fillna(0,inplace=True)
+    b1.fillna(0, inplace=True)
+    b1 = b1.astype(int)
     st.write(b1)
 #         Salem = df1[df1['AcademyName']=='SKA Salem']
     st.info("Salem")
@@ -133,7 +134,8 @@ if result == 'Gender':
     b1 = b.pivot(index='Month_', columns='gender_', values='userId_count')
     b1.columns = ['Female', 'Male']
     b1.index.name = 'Month'
-    b1.fillna(0,inplace=True)
+    b1.fillna(0, inplace=True)
+    b1 = b1.astype(int)
     st.dataframe(b1)
 
 ### The age category of the students registered in the respective academies
@@ -148,6 +150,8 @@ if result == 'age category':
     b1 = b.pivot(index='AgeBucket_', columns='Month_', values='userId_nunique')
     # b1.columns = ['Chennai', 'Salem']
     b1.index.name = 'Age Bucket'
+    b1.fillna(0, inplace=True)
+    b1 = b1.astype(int)
     st.dataframe(b1)
 
     st.info("Salem")
@@ -156,6 +160,8 @@ if result == 'age category':
     b1 = b.pivot(index='AgeBucket_', columns='Month_', values='userId_nunique')
     # b1.columns = ['Chennai', 'Salem']
     b1.index.name = 'Age Bucket'
+    b1.fillna(0, inplace=True)
+    b1 = b1.astype(int)
     st.dataframe(b1)
 
 if result == 'age category':
@@ -170,6 +176,8 @@ if result == 'age category':
     # b1.columns = ['Chennai', 'Salem']
     b1.fillna(0, inplace=True)
     b1.index.name = 'Age Bucket'
+    b1.fillna(0, inplace=True)
+    b1 = b1.astype(int)
     st.dataframe(b1)
 
     st.info("Salem")
@@ -179,8 +187,11 @@ if result == 'age category':
     # b1.columns = ['Chennai', 'Salem']
     b1.index.name = 'Age Bucket'
     b1.fillna(0, inplace=True)
+    b1 = b1.astype(int)
     st.dataframe(b1)
 ### The age category of the students registered in the respective academies
+
+
 if result == 'Course duration':
 #     iris = pd.read_table(st.session_state["uploaded_file"] , sep=",", header=0)
     chennai = iri[iri['AcademyName']=='SKA Chennai']
@@ -192,6 +203,8 @@ if result == 'Course duration':
     b1 = b.pivot(index='courseDurationInMonths_', columns='Month_', values='userId_nunique')
     # b1.columns = ['Chennai', 'Salem']
     b1.index.name = 'Course Duration'
+    b1.fillna(0, inplace=True)
+    b1 = b1.astype(int)
     st.dataframe(b1)
 
     st.info("Salem")
@@ -201,7 +214,10 @@ if result == 'Course duration':
     # b1.columns = ['Chennai', 'Salem']
     b1.index.name = 'Course Duration'
     b1.fillna(0, inplace=True)
+    b1 = b1.astype(int)
     st.dataframe(b1)
+    
+    
 if result == 'Weekend/Weekday preferences':
 #     iris = pd.read_table(st.session_state["uploaded_file"] , sep=",", header=0)
     chennai = iri[iri['AcademyName']=='SKA Chennai']
@@ -213,6 +229,8 @@ if result == 'Weekend/Weekday preferences':
     b1 = b.pivot(index='type_', columns='Month_', values='userId_nunique')
     # b1.columns = ['Chennai', 'Salem']
     b1.index.name = 'Weekend/Weekday preferences'
+    b1.fillna(0, inplace=True)
+    b1 = b1.astype(int)
     st.dataframe(b1)
 
     st.info("Salem")
