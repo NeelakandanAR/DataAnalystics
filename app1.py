@@ -77,7 +77,7 @@ if result == 'no of stndts':
 
     b1 = iri.pivot_table('userId', index='Month', columns='AcademyName', aggfunc='count')
     b2 = iri.pivot_table('fee', index='Month', columns='AcademyName', aggfunc='sum')
-    st.write(b1)
+#     st.write(b1)
 
     st.info("Student count")
     st.bar_chart(b1)
@@ -86,10 +86,10 @@ if result == 'no of stndts':
        
         
         
-#     bar_chart = alt.Chart(data).mark_bar().encode(
-#     alt.Y('a', type='nominal'),
-#     alt.X('b', type='quantitative', aggregate='average'))
-#     st.altair_chart(bar_chart, use_container_width=True)
+    bar_chart = alt.Chart(iri).mark_bar().encode(
+    alt.Y('userId', type='quantitative', aggregate='count'),
+    alt.X('Month', type='temporal'))
+    st.altair_chart(bar_chart, use_container_width=True)
 #     np.round(pd.pivot_table(b, values='userId', 
 #                             index=['Month'], 
 #                             columns=['AcademyName'], 
