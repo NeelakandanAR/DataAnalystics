@@ -3,3 +3,4 @@ IPython
 streamlit-option-menu
 mysql-connector-python==8.0.30
 matplotlib 
+altair
