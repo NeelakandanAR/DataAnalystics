@@ -71,7 +71,7 @@ if result == 'no of stndts':
 #     b1 = b1.rename(index={'SKA Chennai':'Chennai','SKA Salem':'Salem'})
 #     convert_dict = {'userId_count': int}
 #     b1= b1.astype(convert_dict)
-#     st.write(b1)
+    st.write(b1)
 #     b2 = iris.pivot_table('fee', index='Month', columns='AcademyName', aggfunc='sum')
 #     st.write(b2)
 
@@ -86,12 +86,10 @@ if result == 'no of stndts':
        
         
         
-    bar_chart = alt.Chart(b1).mark_bar().encode(
-        x="Month:O",
-        y="count:Q",
-        color="EnergyType:N"
-    )
-    st.altair_chart(bar_chart, use_container_width=True)
+#     bar_chart = alt.Chart(data).mark_bar().encode(
+#     alt.Y('a', type='nominal'),
+#     alt.X('b', type='quantitative', aggregate='average'))
+#     st.altair_chart(bar_chart, use_container_width=True)
 #     np.round(pd.pivot_table(b, values='userId', 
 #                             index=['Month'], 
 #                             columns=['AcademyName'], 
