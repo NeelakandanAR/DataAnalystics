@@ -86,7 +86,7 @@ if result == 'no of stndts':
 
 
         
-    bar_chart = alt.Chart(df).mark_bar().encode(
+    bar_chart = alt.Chart(iri).mark_bar().encode(
     alt.Y('userId', type='quantitative', aggregate='count'),
     alt.X('month(invoiceDate)', type='temporal'))
     st.altair_chart(bar_chart, use_container_width=True)
