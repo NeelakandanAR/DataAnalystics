@@ -88,7 +88,8 @@ if result == 'no of stndts':
         
     bar_chart = alt.Chart(iri).mark_bar().encode(
     alt.Y('userId', type='quantitative', aggregate='count'),
-    alt.X('month(invoiceDate)', type='temporal'))
+    alt.X('month(invoiceDate)', type='temporal'),
+    color='AcademyName')
     st.altair_chart(bar_chart, use_container_width=True)
 #     np.round(pd.pivot_table(b, values='userId', 
 #                             index=['Month'], 
