@@ -92,7 +92,7 @@ if result == 'no of stndts':
     color='AcademyName:N',
     column='AcademyName:N')
     st.info("Student count")
-    st.altair_chart(b1, use_container_width=True)
+    st.altair_chart(b1)
     b2 = alt.Chart(iri).mark_bar().encode(
     x='month(invoiceDate):O',
     y='sum(fee):Q',
