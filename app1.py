@@ -75,24 +75,33 @@ if result == 'no of stndts':
 #     b2 = iris.pivot_table('fee', index='Month', columns='AcademyName', aggfunc='sum')
 #     st.write(b2)
 
-    b1 = iri.pivot_table('userId', index='Month', columns='AcademyName', aggfunc='count')
-    b2 = iri.pivot_table('fee', index='Month', columns='AcademyName', aggfunc='sum')
-#     st.write(b1)
+#     b1 = iri.pivot_table('userId', index='Month', columns='AcademyName', aggfunc='count')
+#     b2 = iri.pivot_table('fee', index='Month', columns='AcademyName', aggfunc='sum')
+# #     st.write(b1)
 
-    st.info("Student count")
-    st.bar_chart(b1)
-    st.info("Fee collected")
-    st.bar_chart(b2)
+    
+#     st.bar_chart(b1)
+    
+#     st.bar_chart(b2)
 
 
         
-    bar_chart = alt.Chart(iri).mark_bar().encode(
-    alt.Y('userId', type='quantitative', aggregate='count'),
-    alt.X('month(invoiceDate)', type='temporal'),
+    b1 = alt.Chart(iri).mark_bar().encode(
+    x='month(invoiceDate):O',
+    y='count(userId):Q',
     color='AcademyName:N',
-    column='Month:N'
-    )
-    st.altair_chart(bar_chart, use_container_width=True)
+    column='AcademyName:N')
+    st.info("Student count")
+    st.altair_chart(b1, use_container_width=True)
+    b2 = alt.Chart(iri).mark_bar().encode(
+    x='month(invoiceDate):O',
+    y='sum(fee):Q',
+    color='AcademyName:N',
+    column='AcademyName:N')
+    st.info("Fee collected")
+    st.altair_chart(b2, use_container_width=True)
+    
+    
 #     np.round(pd.pivot_table(b, values='userId', 
 #                             index=['Month'], 
 #                             columns=['AcademyName'], 
