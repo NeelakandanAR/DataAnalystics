@@ -168,6 +168,7 @@ if result == 'age category':
     b.columns = b.columns.get_level_values(0) + '_' +  b.columns.get_level_values(1)
     b1 = b.pivot(index='AgeBucket_', columns='Month_', values='userId_nunique')
     # b1.columns = ['Chennai', 'Salem']
+    b1.fillna(0, inplace=True)
     b1.index.name = 'Age Bucket'
     st.dataframe(b1)
 
@@ -177,6 +178,7 @@ if result == 'age category':
     b1 = b.pivot(index='AgeBucket_', columns='Month_', values='userId_nunique')
     # b1.columns = ['Chennai', 'Salem']
     b1.index.name = 'Age Bucket'
+    b1.fillna(0, inplace=True)
     st.dataframe(b1)
 ### The age category of the students registered in the respective academies
 if result == 'Course duration':
@@ -198,6 +200,7 @@ if result == 'Course duration':
     b1 = b.pivot(index='courseDurationInMonths_', columns='Month_', values='userId_nunique')
     # b1.columns = ['Chennai', 'Salem']
     b1.index.name = 'Course Duration'
+    b1.fillna(0, inplace=True)
     st.dataframe(b1)
 if result == 'Weekend/Weekday preferences':
 #     iris = pd.read_table(st.session_state["uploaded_file"] , sep=",", header=0)
@@ -218,6 +221,7 @@ if result == 'Weekend/Weekday preferences':
     b1 = b.pivot(index='type_', columns='Month_', values='userId_nunique')
     # b1.columns = ['Chennai', 'Salem']
     b1.index.name ='Weekend/Weekday preferences'
+    b1.fillna(0, inplace=True)
     st.dataframe(b1)
 
 
