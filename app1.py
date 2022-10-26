@@ -222,7 +222,7 @@ if result == 'Weekend/Weekday preferences':
     # b1.columns = ['Chennai', 'Salem']
     b1.index.name ='Weekend/Weekday preferences'
     b1.fillna(0, inplace=True)
-    b1 = b1.apply(pd.to_numeric)
+    b1 = b1.astype(int)
     st.dataframe(b1)
 
 
