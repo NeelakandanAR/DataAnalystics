@@ -164,33 +164,6 @@ if result == 'age category':
     b1 = b1.astype(int)
     st.dataframe(b1)
 
-if result == 'age category':
-#     iris = pd.read_table(st.session_state["uploaded_file"] , sep=",", header=0)
-    chennai = iri[iri['AcademyName']=='SKA Chennai']
-    Salem = iri[iri['AcademyName']=='SKA Salem']
-    st.header('**The age category of the students registered in the respective academies**')
-    st.info("Chennai")
-    b = pd.DataFrame(chennai.groupby(['AgeBucket','Month']).agg({'userId':['count','nunique']})).reset_index()
-    b.columns = b.columns.get_level_values(0) + '_' +  b.columns.get_level_values(1)
-    b1 = b.pivot(index='AgeBucket_', columns='Month_', values='userId_nunique')
-    # b1.columns = ['Chennai', 'Salem']
-    b1.fillna(0, inplace=True)
-    b1.index.name = 'Age Bucket'
-    b1.fillna(0, inplace=True)
-    b1 = b1.astype(int)
-    st.dataframe(b1)
-
-    st.info("Salem")
-    b = pd.DataFrame(Salem.groupby(['AgeBucket','Month']).agg({'userId':['count','nunique']})).reset_index()
-    b.columns = b.columns.get_level_values(0) + '_' +  b.columns.get_level_values(1)
-    b1 = b.pivot(index='AgeBucket_', columns='Month_', values='userId_nunique')
-    # b1.columns = ['Chennai', 'Salem']
-    b1.index.name = 'Age Bucket'
-    b1.fillna(0, inplace=True)
-    b1 = b1.astype(int)
-    st.dataframe(b1)
-### The age category of the students registered in the respective academies
-
 
 if result == 'Course duration':
 #     iris = pd.read_table(st.session_state["uploaded_file"] , sep=",", header=0)
