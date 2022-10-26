@@ -37,7 +37,7 @@ iris = pd.DataFrame(df1)
 # iris=iris.replace({"Month": d},inplace=True)
 st.header('**CSK Academy Data analytics**')
 
-option_list = ['no of stndts',  'Gender', 'age category']
+option_list = ['no of stndts',  'Gender', 'age category', 'Course duration', 'Weekend/Weekday preferences']
 result = st.selectbox('select your analysis category', option_list)
 ##iris = pd.read_table(uploaded_file)
 col = iris.columns.to_list()
@@ -134,5 +134,68 @@ if result == 'age category':
     # b1.columns = ['Chennai', 'Salem']
     b1.index.name = 'Age Bucket'
     st.dataframe(b1)
+
+if result == 'age category':
+#     iris = pd.read_table(st.session_state["uploaded_file"] , sep=",", header=0)
+    chennai = iri[iri['AcademyName']=='SKA Chennai']
+    Salem = iri[iri['AcademyName']=='SKA Salem']
+    st.header('**The age category of the students registered in the respective academies**')
+    st.info("Chennai")
+    b = pd.DataFrame(chennai.groupby(['AgeBucket','Month']).agg({'userId':['count','nunique']})).reset_index()
+    b.columns = b.columns.get_level_values(0) + '_' +  b.columns.get_level_values(1)
+    b1 = b.pivot(index='AgeBucket_', columns='Month_', values='userId_nunique')
+    # b1.columns = ['Chennai', 'Salem']
+    b1.index.name = 'Age Bucket'
+    st.dataframe(b1)
+
+    st.info("Salem")
+    b = pd.DataFrame(Salem.groupby(['AgeBucket','Month']).agg({'userId':['count','nunique']})).reset_index()
+    b.columns = b.columns.get_level_values(0) + '_' +  b.columns.get_level_values(1)
+    b1 = b.pivot(index='AgeBucket_', columns='Month_', values='userId_nunique')
+    # b1.columns = ['Chennai', 'Salem']
+    b1.index.name = 'Age Bucket'
+    st.dataframe(b1)
+### The age category of the students registered in the respective academies
+if result == 'Course duration':
+#     iris = pd.read_table(st.session_state["uploaded_file"] , sep=",", header=0)
+    chennai = iri[iri['AcademyName']=='SKA Chennai']
+    Salem = iri[iri['AcademyName']=='SKA Salem']
+    st.header('**The age category of the students registered in the respective academies**')
+    st.info("Chennai")
+    b = pd.DataFrame(chennai.groupby(['courseDurationInMonths','Month']).agg({'userId':['count','nunique']})).reset_index()
+    b.columns = b.columns.get_level_values(0) + '_' +  b.columns.get_level_values(1)
+    b1 = b.pivot(index='courseDurationInMonths_', columns='Month_', values='userId_nunique')
+    # b1.columns = ['Chennai', 'Salem']
+    b1.index.name = 'Course Duration'
+    st.dataframe(b1)
+
+    st.info("Salem")
+    b = pd.DataFrame(Salem.groupby(['courseDurationInMonths','Month']).agg({'userId':['count','nunique']})).reset_index()
+    b.columns = b.columns.get_level_values(0) + '_' +  b.columns.get_level_values(1)
+    b1 = b.pivot(index='courseDurationInMonths_', columns='Month_', values='userId_nunique')
+    # b1.columns = ['Chennai', 'Salem']
+    b1.index.name = 'Course Duration'
+    st.dataframe(b1)
+if result == 'Weekend/Weekday preferences':
+#     iris = pd.read_table(st.session_state["uploaded_file"] , sep=",", header=0)
+    chennai = iri[iri['AcademyName']=='SKA Chennai']
+    Salem = iri[iri['AcademyName']=='SKA Salem']
+    st.header('**The age category of the students registered in the respective academies**')
+    st.info("Chennai")
+    b = pd.DataFrame(chennai.groupby(['courseDurationInMonths','Month']).agg({'userId':['count','nunique']})).reset_index()
+    b.columns = b.columns.get_level_values(0) + '_' +  b.columns.get_level_values(1)
+    b1 = b.pivot(index='courseDurationInMonths_', columns='Month_', values='userId_nunique')
+    # b1.columns = ['Chennai', 'Salem']
+    b1.index.name = 'Course Duration'
+    st.dataframe(b1)
+
+    st.info("Salem")
+    b = pd.DataFrame(Salem.groupby(['courseDurationInMonths','Month']).agg({'userId':['count','nunique']})).reset_index()
+    b.columns = b.columns.get_level_values(0) + '_' +  b.columns.get_level_values(1)
+    b1 = b.pivot(index='courseDurationInMonths_', columns='Month_', values='userId_nunique')
+    # b1.columns = ['Chennai', 'Salem']
+    b1.index.name = 'Course Duration'
+    st.dataframe(b1)
+
 
 
