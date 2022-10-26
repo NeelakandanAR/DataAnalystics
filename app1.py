@@ -83,12 +83,12 @@ if result == 'no of stndts':
     st.bar_chart(b1)
     st.info("Fee collected")
     st.bar_chart(b2)
-       
+
+
         
-        
-    bar_chart = alt.Chart(iri).mark_bar().encode(
+    bar_chart = alt.Chart(df).mark_bar().encode(
     alt.Y('userId', type='quantitative', aggregate='count'),
-    alt.X('Month', type='temporal'))
+    alt.X('month(invoiceDate)', type='temporal'))
     st.altair_chart(bar_chart, use_container_width=True)
 #     np.round(pd.pivot_table(b, values='userId', 
 #                             index=['Month'], 
