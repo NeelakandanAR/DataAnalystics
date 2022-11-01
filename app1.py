@@ -293,11 +293,11 @@ elif choice == "SignUp":
     new_user = st.text_input("Username")
     new_password = st.text_input("Password", type='password')
 
-if st.button("Signup"):
-    create_usertable()
-    add_userdata(new_user, make_hashes(new_password))
-    st.success("You have successfully created a valid Account")
-    st.info("Go to Login Menu to login")
+    if st.button("Signup"):
+        create_usertable()
+        add_userdata(new_user, make_hashes(new_password))
+        st.success("You have successfully created a valid Account")
+        st.info("Go to Login Menu to login")
 
 if __name__ == '__main__':
     main()
