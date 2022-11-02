@@ -76,7 +76,7 @@ def main():
 
 #             result = login_user(username, check_hashes(password, hashed_pswd))
             
-            if username == "CSK" and password > "Pro@2022":
+            if username == "CSK" and password == "Pro@2022":
                 st.success("Logged In as {}".format(username))
                 # Initialize connection.
                 # Uses st.experimental_singleton to only run once.
