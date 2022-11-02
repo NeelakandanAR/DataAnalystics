@@ -61,13 +61,10 @@ def main():
 
     st.title("Simple Login App")
 
-    menu = ["Home", "Login", "SignUp"]
+    menu = ["Login", "SignUp"]
     choice = st.sidebar.selectbox("Menu", menu)
 
-    if choice == "Home":
-        st.subheader("Home")
-
-    elif choice == "Login":
+    if choice == "Login":
         st.subheader("Login Section")
 
         username = st.sidebar.text_input("User Name")
